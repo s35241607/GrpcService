@@ -1,0 +1,34 @@
+//這表示使用 Protocol Buffers 的第三個版本（proto3）的語法來定義消息和服務。
+syntax = "proto3";
+
+//這是為了指定生成的 C# 代碼所在的命名空間，這裡是 "GrpcService"。
+option csharp_namespace = "GrpcService";
+
+package greet;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply);
+
+  // GetData
+  rpc GetData (Empty) returns (EmployeeReply);
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}
+
+message Empty {}
+
+message EmployeeReply {
+	string Name = 1;	
+	int Age = 2;
+	string Sex = 3;
+}
